@@ -1,10 +1,12 @@
-
+import { HomeView } from '../views/homeView.js';
+import { LoginView } from '../views/loginView.js';
 
 
 const app = Vue.createApp({
 
     data() {
         return {
+            currentView: 'home-view'
             
 
         }
@@ -18,6 +20,9 @@ const app = Vue.createApp({
     },
 
     methods: {
+        goToLogin() {
+            this.currentView = 'login-view'
+        }
         
 
     },
@@ -25,8 +30,17 @@ const app = Vue.createApp({
 
     mounted() {
         
-    }
+    },
 
 
 
-})
+
+
+});
+
+app.component('home-view', HomeView);
+app.component('login-view', LoginView);
+
+
+// Montar la app
+app.mount('#app');

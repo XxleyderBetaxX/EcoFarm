@@ -1,0 +1,22 @@
+@layer main{
+
+    body {
+        font-family: var(--ff-body);
+        font-weight: var(--fw-regular);
+    }
+
+    h1, h2, h3{
+        font-family: var(--ff-main);
+        font-weight: var(--fw-bold);
+    }
+
+    .button-font{
+        font-family: var(--ff-main);
+        font-weight: var(--fw-light);
+        font-size: var(--fs-l);
+    }
+
+    
+
+}
+

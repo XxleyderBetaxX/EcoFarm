@@ -1,0 +1,12 @@
+@layer sections {
+
+    .background-home{
+        display: grid;
+        align-items: center;
+        background: linear-gradient(hsla(0,0%,0%,0.6), hsla(0,0%,0%,0.6)), url("../../img/fondo2.jpg") no-repeat center/cover;
+        width: 100%;
+        height: 100vh;
+    }
+
+    
+}
