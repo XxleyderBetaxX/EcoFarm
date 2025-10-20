@@ -1,19 +1,17 @@
-/* 1. base*/
-@import url('./base/reset.css');
-@import url('./base/variables.css');
-@import url('./base/typography.css');
-@import url('./base/main.css');
 
-/* 2. layout*/
-@import url('./layout/grid.css');
-@import url('./layout/section.css');
+@import "./base/_main.css";
+@import "./base/_reset.css";
+@import "./base/_typography.css";
+@import "./base/_variables.css";
 
-/* 3. Components*/
+@import "./layout/_grid.css";
+@import "./layout/_sections.css";
 
-@import url('./components/button.css');
-@import url('./components/card.css');
-@import url('./components/notification.css');
+@import "./components/_buttons.css";
+@import "./components/_card.css";
+@import "./components/_notification.css";
 
-/* 3. utilities*/
-@import url('./utilities/helpers.css');
-@import url('./utilities/spacing.css');
+@import "./utilities/_helpers.css";
+@import "./utilities/_spacing.css";
+
+
