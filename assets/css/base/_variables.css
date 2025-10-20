@@ -1,0 +1,39 @@
+@layer base{
+:root{
+        --clr-white: hsl(0, 0%, 100%);
+        --clr-black: hsl(0, 0%, 0%);
+        --clr-red: hsl(0, 98%, 33%);
+        --clr-red-light: hsl(0, 91%, 48%);
+        --clr-dark-green: hsl(125, 83%, 43%);
+
+        --ff-main: "Bungee", cursive;
+        --ff-body: "Roboto", sans-serif;
+
+        --fs-xs: 0.75rem;     /* 12px */
+        --fs-s: 0.875rem;     /* 14px */
+        --fs-m: 1rem;         /* 16px */
+        --fs-ml: 1.125rem;    /* 18px */
+        --fs-l: 1.25rem;      /* 20px */
+        --fs-lx: 1.375rem;    /* 22px */
+        --fs-xl: 1.5rem;      /* 24px */
+        --fs-xxl: 2.5rem;     /* 40px */
+        --fs-king: 3rem;      /* 48px */
+        --fs-big: 3.75rem;    /* 60px */
+        --fs-bigger: 4.5rem;  /* 72px */
+        --fs-giant: 5rem;     /* 80px */
+
+        --fw-extra-light: 200;
+        --fw-light: 300;
+        --fw-regular: 400;
+        --fw-medium: 500;
+        --fw-semibold: 600;
+        --fw-bold: 700;
+
+        --lh-body: 1.6; /* 14-18px */
+        --lh-heading: 1.2; /* 20-48px */
+        --lh-hero: 1.1; /* 60-80px */
+
+
+}
+
+}
