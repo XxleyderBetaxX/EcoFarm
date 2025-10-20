@@ -1,5 +1,6 @@
 
 export const GardenView = {
+
   props: {
     backgroundImage: {
       type: String,

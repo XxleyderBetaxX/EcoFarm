@@ -3,12 +3,12 @@ import { LoginView } from '../views/loginView.js';
 import { GardenView } from '../views/vegetableGardenView.js';
 
 
-
 const app = Vue.createApp({
 
     data() {
         return {
             currentView: 'home-view'
+            
             
 
         }
@@ -47,6 +47,7 @@ const app = Vue.createApp({
 app.component('home-view', HomeView);
 app.component('login-view', LoginView);
 app.component('garden-view', GardenView);
+
 
 
 
