@@ -1,4 +1,6 @@
-export const VegetableView = {
+
+export const GardenView = {
+
   props: {
     backgroundImage: {
       type: String,
@@ -24,3 +26,4 @@ export const VegetableView = {
   </div>
   `
 };
+
