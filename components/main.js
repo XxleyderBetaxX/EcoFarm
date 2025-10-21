@@ -1,13 +1,14 @@
 import { HomeView } from '../views/homeView.js';
 import { LoginView } from '../views/loginView.js';
 import { GardenView } from '../views/vegetableGardenView.js';
+import { RegisterView } from '../views/registerView.js';
 
 
 const app = Vue.createApp({
 
     data() {
         return {
-            currentView: 'login-view'
+            currentView: 'home-view'
             
             
 
@@ -22,7 +23,7 @@ const app = Vue.createApp({
     },
 
     methods: {
-        goToLogin() {
+        goToLoginView() {
             this.currentView = 'login-view';
         },
 
@@ -32,6 +33,10 @@ const app = Vue.createApp({
 
         goToHomeView() {
             this.currentView = 'home-view';
+        },
+
+        goToRegisterView() {
+            this.currentView = 'register-view';
         }
         
 
@@ -51,6 +56,7 @@ const app = Vue.createApp({
 app.component('home-view', HomeView);
 app.component('login-view', LoginView);
 app.component('garden-view', GardenView);
+app.component('register-view', RegisterView)
 
 
 

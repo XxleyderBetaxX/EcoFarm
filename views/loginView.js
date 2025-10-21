@@ -30,7 +30,7 @@ export const LoginView =  {
     <div class = " space-buttons ">
 
         <button @click="$root.goToHomeView()" type="submit" class="button-font">Volver</button>
-        <button @click="$root.goToGardenView()" type="submit" class="button-font">Entrar</button>
+        <button @click="$root.goToGardenView()" type="submit" class="button-font">Iniciar sesión</button>
         </div>
     
         </div>
