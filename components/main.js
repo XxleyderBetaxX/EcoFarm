@@ -37,8 +37,13 @@ const app = Vue.createApp({
 
         goToRegisterView() {
             this.currentView = 'register-view';
-        }
-        
+        },
+         goToHome(){
+            this.currentView= 'home-view';
+        },
+         goToShop() { console.log("Ir a la tienda");
+
+          }
 
     },
     
