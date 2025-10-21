@@ -9,13 +9,25 @@
     }
 
 
-      .background-garden{
+    .background-garden{
         display: grid;
         align-items: center;
-        background: url("../../img/fondo.jpg") no-repeat center/cover;
+        background: url("../../img/fondo.png") no-repeat center/cover;
         width: 100%;
         height: 90vh;
     }
+
+    .background-login{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(hsla(0,0%,0%,0.6), hsla(0,0%,0%,0.6)), url("../../img/fondo2.jpg") no-repeat center/cover;
+        width: 100%;
+        height: 100vh;
+    }
+
+    
+
 
     
 }

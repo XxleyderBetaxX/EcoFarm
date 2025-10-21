@@ -2,9 +2,9 @@
 :root{
         --clr-white: hsl(0, 0%, 100%);
         --clr-black: hsl(0, 0%, 0%);
-        --clr-red: hsl(0, 98%, 33%);
+        --clr-dark-red: hsl(0, 98%, 33%);
         --clr-red-light: hsl(0, 91%, 48%);
-        --clr-dark-green: hsl(125, 83%, 43%);
+        --clr-brown: hsl(21, 71%, 20%);
 
         --ff-main: "Bungee", cursive;
         --ff-body: "Roboto", sans-serif;
@@ -32,6 +32,9 @@
         --lh-body: 1.6; /* 14-18px */
         --lh-heading: 1.2; /* 20-48px */
         --lh-hero: 1.1; /* 60-80px */
+
+        --spacer: 1rem;
+    
 
 
 }
