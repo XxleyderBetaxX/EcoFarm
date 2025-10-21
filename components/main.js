@@ -7,7 +7,7 @@ const app = Vue.createApp({
 
     data() {
         return {
-            currentView: 'home-view'
+            currentView: 'login-view'
             
             
 
@@ -28,6 +28,10 @@ const app = Vue.createApp({
 
         goToGardenView() {
             this.currentView = 'garden-view';
+        },
+
+        goToHomeView() {
+            this.currentView = 'home-view';
         }
         
 

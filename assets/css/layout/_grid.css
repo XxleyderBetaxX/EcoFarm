@@ -8,5 +8,11 @@
     gap: 100px;
 }
 
+.login-view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 }
 

@@ -8,7 +8,7 @@
 
 
 button{
-    background-color: var(--clr-red);
+    background-color: var(--clr-dark-red);
     border-radius: 50px;
     color: var(--clr-white);
     height: 50px;
@@ -17,11 +17,16 @@ button{
     cursor: pointer;
     transition: background-color 0.2s ease;
 
-
 }
 
 button:hover{
     background-color: var(--clr-red-light);
+}
+
+.space-buttons{
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
 }
 
 
