@@ -29,4 +29,16 @@ button:hover{
     margin-bottom: 60px;
 }
 
+  .garden-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+    .buttton-right {
+    display: flex;
+    gap: 30px; 
+  }
+
 

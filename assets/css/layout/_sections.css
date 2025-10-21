@@ -26,6 +26,66 @@
         height: 100vh;
     }
 
+.background-garden {
+    display: grid;
+    align-items: center;
+     background:  url("../../img/fondo.png") no-repeat center/cover;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .garden-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+   .header-navbar {
+  width: 100%;
+  height: 100px;
+  background-color: #000; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  color: #fff;
+  font-family: var(--ff-main);
+  font-weight: var(--fw-bold);
+}
+
+.sun-icon img {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto 40px;
+  }
+
+  
+
+  .center-icon img {
+    width:  250px;
+    height: auto;
+  }
+
+ 
+
+ .user-size {
+    font-size: 30px; 
+  }
+
+.coin-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100px;
+  height: 100px;
+}
+
+
+.coin-count {
+  font-size: 30px;
+}
     
 
 
