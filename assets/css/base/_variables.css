@@ -5,6 +5,12 @@
         --clr-dark-red: hsl(0, 98%, 33%);
         --clr-red-light: hsl(0, 91%, 48%);
         --clr-brown: hsl(21, 71%, 20%);
+        --clr-orange: #df731b;
+        --clr-yellow: #ffc100;
+        --clr-green: #0e5e15;
+        --clr-green-light: #1aaa26;
+        --clr-light-blue: #2298c7;
+        --clr-blue: #0e6181;
 
         --ff-main: "Bungee", cursive;
         --ff-body: "Roboto", sans-serif;
@@ -34,7 +40,7 @@
         --lh-hero: 1.1; /* 60-80px */
 
         --spacer: 1rem;
-    
+
 
 
 }

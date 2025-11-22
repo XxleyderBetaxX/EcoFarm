@@ -8,7 +8,6 @@
         height: 100vh;
     }
 
-
     .background-garden{
         display: grid;
         align-items: center;
@@ -23,71 +22,135 @@
         justify-content: center;
         background: linear-gradient(hsla(0,0%,0%,0.6), hsla(0,0%,0%,0.6)), url("../../img/fondo2.jpg") no-repeat center/cover;
         width: 100%;
+        height: 120vh;
+    }
+
+    .background-garden {
+        display: grid;
+        align-items: center;
+        background:  url("../../img/fondo.png") no-repeat center/cover;
+        width: 100%;
         height: 100vh;
     }
 
-.background-garden {
-    display: grid;
-    align-items: center;
-     background:  url("../../img/fondo.png") no-repeat center/cover;
-    width: 100%;
-    height: 100vh;
-  }
-  
-  .garden-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-  
-   .header-navbar {
-  width: 100%;
-  height: 100px;
-  background-color: #000; 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 80px;
-  color: #fff;
-  font-family: var(--ff-main);
-  font-weight: var(--fw-bold);
-}
+    .background-store{
+        display: grid;
+        background: linear-gradient(hsla(0,0%,0%,0.6), hsla(0,0%,0%,0.6)), url("../../img/fondo.png") no-repeat center/cover;
+        width: 100%;
+        height: 130vh;
+    }
 
-.sun-icon img {
-    width: 300px;
-    height: auto;
-    display: block;
-    margin: 0 auto 40px;
-  }
+    .square-store{
+        margin-top: 100px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .store-frame {
+        position: relative;
+        width: auto;
+    }
 
   
+    .garden-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+  
+    .header-navbar {
+        width: 100%;
+        height: 100px;
+        background-color: #000; 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 80px;
+        color: #fff;
+        font-family: var(--ff-main);
+        font-weight: var(--fw-bold);
+    }
 
-  .center-icon img {
-    width:  250px;
-    height: auto;
-  }
+    .sun-icon img {
+        width: 300px;
+        height: auto;
+        display: block;
+        margin: 0 auto 40px;
+    }
 
- 
+  
 
- .user-size {
-    font-size: 30px; 
-  }
-
-.coin-center {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100px;
-  height: 100px;
-}
+    .center-icon img {
+        width:  250px;
+        height: auto;
+    }
 
 
-.coin-count {
-  font-size: 30px;
-}
+    .user-size {
+        font-size: var(--fs-xl); 
+    }
+
+    .coin-center {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100px;
+      height: 100px;
+    }
+
+
+    .coin-count {
+      font-size: var(--fs-xl);
+    }
     
 
-
+    .product-img {
+      width: 200px;
     
+    }
+
+    .products-store{
+      flex: 3;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 80px;
+      justify-content: flex-start;
+
+    }
+
+    .products-store li {
+      width: 180px;
+    }
+
+
+    .price-row{
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .info-store{
+      flex: 1;
+      max-width: 200px;
+      margin-right: 130px;
+      margin-top: 60px;
+
+    }
+
+    .store-overlay {
+      position: absolute;
+      top: 50px;
+      left: 60px;
+      padding: 3rem;
+      width: 100%;
+      display: flex;
+      gap: 60px;
+  
+    }
+
+
+
 }

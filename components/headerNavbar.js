@@ -2,9 +2,11 @@
 export const HeaderNavbar = {
   props: {
     username: { default: 'Usuario' },
-    coins: {  default: 1000 }
+    coins: { default: 1000 },
+    botonDestino: { default: 'Ir a tienda' },
+    accionBoton: {default: 'goToShop'}
   },
-  template: `
+  template: /*html*/ `
     <header class="header-navbar">
       <div class="user-size">{{ username }}</div>
       <div class="coin-center">
@@ -12,9 +14,9 @@ export const HeaderNavbar = {
         <span class="coin-count">{{ coins }}</span>
       </div>
       <div class="buttton-right">
-        <button @click="$root.goToShop()" class="button-font">Ir a Tienda</button>
+        <button @click="$root[accionBoton]()" class="button-font button-main">{{botonDestino}}</button>
         
-       <button @click="$root.goToHome()" class="button-font">Cerrar Sesión</button>
+        <button @click="$root.goToHome()" class="button-font button-main">Cerrar Sesión</button>
       </div>
     </header>
   `

@@ -35,8 +35,8 @@ export const RegisterView =  {
         </form>
     <div class = " space-buttons ">
 
-        <button @click="$root.goToHomeView()" type="submit" class="button-font">Volver</button>
-        <button @click="$root.goToGardenView()" type="submit" class="button-font">Crear Cuenta</button>
+        <button @click="$root.goToHomeView()" type="submit" class="button-font button-main">Volver</button>
+        <button @click="$root.goToGardenView()" type="submit" class="button-font button-main">Crear Cuenta</button>
         </div>
     
         </div>

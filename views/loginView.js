@@ -29,8 +29,8 @@ export const LoginView =  {
         </form>
     <div class = " space-buttons ">
 
-        <button @click="$root.goToHomeView()" type="submit" class="button-font">Volver</button>
-        <button @click="$root.goToGardenView()" type="submit" class="button-font">Iniciar sesión</button>
+        <button @click="$root.goToHomeView()" type="submit" class="button-font button-main">Volver</button>
+        <button @click="$root.goToGardenView()" type="submit" class="button-font button-main">Iniciar sesión</button>
         </div>
     
         </div>

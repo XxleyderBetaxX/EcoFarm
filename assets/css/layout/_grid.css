@@ -14,7 +14,7 @@
     align-items: center;
 }
 
- .earth-row {
+.earth-row {
     display: flex;
     justify-content: center;
     align-items: flex-start;
