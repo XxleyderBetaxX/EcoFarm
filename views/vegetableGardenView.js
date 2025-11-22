@@ -8,7 +8,7 @@ export const GardenView = {
   },
   emits: ['goHome', 'goToShop'],
 
-  template: `
+  template: /*html*/`
     <div class="garden-view-container">
       <HeaderNavbar 
         @go-home="$emit('goHome')"
@@ -39,10 +39,10 @@ export const GardenView = {
           </div>
 
           <div class="garden-buttons">
-            <button class="button-font">Regar</button>
-            <button class="button-font">Abonar</button>
-            <button class="button-font">Sembrar</button>
-            <button class="button-font">Cosechar</button>
+            <button class="button-font button-main">Regar</button>
+            <button class="button-font button-main">Abonar</button>
+            <button class="button-font button-main">Sembrar</button>
+            <button class="button-font button-main">Cosechar</button>
           </div>
         </div>
       </div>

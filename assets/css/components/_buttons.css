@@ -7,7 +7,7 @@
 }
 
 
-button{
+.button-main{
     background-color: var(--clr-dark-red);
     border-radius: 50px;
     color: var(--clr-white);
@@ -19,7 +19,7 @@ button{
 
 }
 
-button:hover{
+.button-main:hover{
     background-color: var(--clr-red-light);
 }
 
@@ -39,6 +39,52 @@ button:hover{
     .buttton-right {
     display: flex;
     gap: 30px; 
+  }
+
+  .btn-plus{
+    width: 70px;
+    background-color: var(--clr-green);
+    color: var(--clr-white);
+    border-radius: 30px;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .btn-plus:hover{
+    background-color: var(--clr-green-light);
+  }
+
+  .btn-minus{
+    width: 70px;
+    background-color: var(--clr-dark-red);
+    color: var(--clr-white);
+    border-radius: 30px;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .btn-minus:hover{
+    background-color: var(--clr-red-light);
+  }
+
+  .buttons-store{
+    display: flex;
+    gap: 20px;
+    
+
+  }
+
+  .btn-buy{
+    background-color: var(--clr-blue);
+    border-radius: 30px;
+    color: var(--clr-white);
+    width: 170px;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .btn-buy:hover{
+    background-color: var(--clr-light-blue);
   }
 
 

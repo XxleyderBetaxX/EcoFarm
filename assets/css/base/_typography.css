@@ -2,9 +2,13 @@
 
 .white-color{ color: var(--clr-white); }
 .black-color{ color: var(--clr-black); }
-.brown-color { color: var(--clr-dark-green);}
+.green-color { color: var(--clr-green);}
 .dark-red { color: var(--clr-dark-red);}
 .dark-red-light { color: var(--clr-red-ligth);}
+.orange-color { color: var(--clr-orange);}
+.yellow-color { color: var(--clr-yellow);}
+.brown-color {color: var(--clr-brown);}
+.blue-color {color: var(--clr-blue);}
 
 
 .text-xs{ font-size: var(--fs-xs); }
@@ -35,5 +39,8 @@
 
 .no-decoration{ text-decoration: none;}
 
+.no-style { list-style: none; padding-left: 0px;}
+
 
 }
+
