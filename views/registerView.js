@@ -1,14 +1,50 @@
-export const RegisterView =  {
-
-    props: {
-
+export const RegisterView = {
+    
+    data() {
+        return {
+            name: "",
+            email: "",
+            password: "",
+            password_confirmation: ""
+        };
+        
     },
 
-    computed: {
-
-    },
 
     methods: {
+        async register() {
+            try {
+                const response = await fetch("http://127.0.0.1:8000/api/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name: this.name,
+                        email: this.email,
+                        password: this.password,
+                        password_confirmation: this.password_confirmation
+                        
+                    }),
+
+                });
+
+                const data = await response.json();
+                console.log("Respuesta del backend: ", data);
+                
+                if (response.ok) {
+                    alert("Usuario creado con éxito");
+                    this.$root.goToLoginView();
+                } else {
+                    alert("Error " + (data.error || "Verifica los datos"));
+                }
+
+            } catch (error) {
+                console.error("Error ", error);
+                alert("No se pudo conectar con el servidor")
+            }
+        }
+        
 
     },
 
@@ -18,26 +54,27 @@ export const RegisterView =  {
     
     <div class = "login card-register">
         <h1 class="text-king white-color center">Registrarse</h1>
-    <form class="form ">
+    <form class="form" @submit.prevent="register">
     
         <label class="text-lx white-color medium ">Usuario</label>
-        <input type="text" placeholder="Ingresa tu usuario" class="input text-ml medium" />
+        <input v-model="name" type="text" placeholder="Ingresa tu usuario" class="input text-ml medium" />
 
         <label class="text-lx white-color medium ">Correo electrónico</label>
-        <input type="email" placeholder="Ingresa tu correo eletrónico" class="input text-ml medium" />
+        <input v-model="email" type="email" placeholder="Ingresa tu correo eletrónico" class="input text-ml medium" />
 
 
         <label class="text-lx white-color medium">Contraseña</label>
-        <input type="password" placeholder="Ingresa tu contraseña" class="input text-ml medium " />
+        <input v-model="password" type="password" placeholder="Ingresa tu contraseña" class="input text-ml medium " />
 
         <label class="text-lx white-color medium ">Confirmar contraseña</label>
-        <input type="password" placeholder="Confirma tu contraseña" class="input text-ml medium" />
-        </form>
+        <input v-model="password_confirmation" type="password" placeholder="Confirma tu contraseña" class="input text-ml medium" />
+        
     <div class = " space-buttons ">
 
         <button @click="$root.goToHomeView()" type="submit" class="button-font button-main">Volver</button>
-        <button @click="$root.goToGardenView()" type="submit" class="button-font button-main">Crear Cuenta</button>
+        <button  type="submit" class="button-font button-main">Crear Cuenta</button>
         </div>
+        </form>
     
         </div>
     </div>
