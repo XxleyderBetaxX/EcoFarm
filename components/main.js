@@ -9,7 +9,7 @@ const app = Vue.createApp({
 
     data() {
         return {
-            currentView: 'store-view'
+            currentView: 'home-view'
             
             
 
