@@ -17,13 +17,13 @@ export const GardenView = {
         zanahoria: { seed: 
           "./assets/img/harvested carrot.png", 
           grown: "./assets/img/carrot.png",
-           wet: "./assets/img/wet-carrot.png", 
-           damaged: "./assets/img/damaged-carrot.png" },
-           
+          wet: "./assets/img/wet-carrot.png", 
+          damaged: "./assets/img/damaged-carrot.png" },
+        
         sandia: { seed: "./assets/img/harvested watermelon.png",
-           grown: "./assets/img/watermelon.png",
-            wet: "./assets/img/wet-watermelon.png", 
-            damaged: "./assets/img/damaged-watermelon.png" },
+          grown: "./assets/img/watermelon.png",
+          wet: "./assets/img/wet-watermelon.png", 
+          damaged: "./assets/img/damaged-watermelon.png" },
 
         cebolla: { seed: "./assets/img/harvested onion.png", 
           grown: "./assets/img/onion.png", 
@@ -37,8 +37,8 @@ export const GardenView = {
 
         rabano: { seed: "./assets/img/harvested radish.png", 
           grown: "./assets/img/radish.png",
-           wet: "./assets/img/wet-radish.png",
-            damaged: "./assets/img/damaged-radish.png" },
+          wet: "./assets/img/wet-radish.png",
+          damaged: "./assets/img/damaged-radish.png" },
 
         lechuga: { seed: "./assets/img/harvested lettuce.png", 
           grown: "./assets/img/lettuce.png", 
@@ -47,8 +47,8 @@ export const GardenView = {
 
         calabaza: { seed: "./assets/img/harvested pumpkin.png", 
           grown: "./assets/img/pumpkin.png",
-           wet: "./assets/img/wet-pumpkin.png", 
-           damaged: "./assets/img/damaged-pumpkin.png" }
+          wet: "./assets/img/wet-pumpkin.png", 
+          damaged: "./assets/img/damaged-pumpkin.png" }
       },
 
       parcels: Array(32).fill().map(() => ({
@@ -119,7 +119,7 @@ export const GardenView = {
           }
           break;
 
-       
+    
         case "Abonar":
           if (parcel.planted) {
             parcel.fertilized = true;
@@ -141,7 +141,7 @@ export const GardenView = {
     startDeathTimer(parcel) {
       this.clearTimers(parcel);
 
-     
+
       if (parcel.watered && parcel.fertilized) return;
 
       parcel.deathTimer = setTimeout(() => {
@@ -159,25 +159,25 @@ export const GardenView = {
     updateParcel(parcel) {
       if (!parcel.planted) return;
 
-     
+  
       if (parcel.watered && parcel.fertilized) {
         parcel.img = this.vegetableImages[parcel.vegetable].grown;
         this.clearTimers(parcel); 
         return;
       }
 
-     
+  
       if (parcel.watered) {
         parcel.img = this.vegetableImages[parcel.vegetable].wet;
         return;
       }
 
-     
+    
       parcel.img = this.vegetableImages[parcel.vegetable].seed;
     }
   },
 
-  template: `
+  template: /*html*/`
     <div class="garden-view-container">
       <HeaderNavbar 
         @go-home="$emit('goHome')"

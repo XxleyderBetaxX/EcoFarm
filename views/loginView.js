@@ -25,6 +25,10 @@ export const LoginView = {
                 console.log("Respuesta del backend: ", data);
 
                 if (response.ok) {
+                    const token = data.token; 
+                    const walletBalance = data.wallet_balance;
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('wallet_balance', walletBalance);
                     alert("Login exitoso");
                     this.$root.goToGardenView();
                 } else {
@@ -41,33 +45,30 @@ export const LoginView = {
     },
 
 
-    template: /*html*/`
-    <div class = "background-login ">
-    
-    <div class = "login card">
+
+template: /*html*/`
+<div class="background-login">
+
+    <div class="login card">
         <h1 class="text-king white-color center">Iniciar Sesión</h1>
-    <form class="form" @submit.prevent="login">
+        <form class="form" @submit.prevent="login">
 
-        <label class="text-lx white-color medium ">Usuario</label>
-        <input v-model="name" type="text" placeholder="Ingresa tu usuario" class="input text-ml medium" />
+            <label class="text-lx white-color medium">Usuario</label>
+            <input v-model="name" type="text" placeholder="Ingresa tu usuario" class="input text-ml medium" />
 
+            <label class="text-lx white-color medium">Contraseña</label>
+            <input v-model="password" type="password" placeholder="Ingresa tu contraseña" class="input text-ml medium" />
 
-        <label class="text-lx white-color medium">Contraseña</label>
-        <input v-model="password" type="password" placeholder="Ingresa tu contraseña" class="input text-ml medium " />
-        
-    <div class = " space-buttons ">
+            <div class="space-buttons">
+                <button @click="$root.goToHomeView()" type="submit" class="button-font button-main">Volver</button>
+                <button type="submit" class="button-font button-main">Iniciar sesión</button>
+            </div>
 
-        <button @click="$root.goToHomeView()" type="submit" class="button-font button-main">Volver</button>
-        <button type="submit" class="button-font button-main">Iniciar sesión</button>
-        </div>
         </form>
-    
-        </div>
     </div>
-    
 
-    `
-
+</div>
+`
 
     
 
