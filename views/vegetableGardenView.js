@@ -9,14 +9,46 @@ export const GardenView = {
       selectedVegetable: null,
 
       vegetableImages: {
-        tomato: { seed: "./assets/img/harvested tomato.png", grown: "./assets/img/tomato.png" },
-        carrot: { seed: "./assets/img/harvested carrot.png", grown: "./assets/img/carrot.png" },
-        watermelon: { seed: "./assets/img/harvested watermelon.png", grown: "./assets/img/watermelon.png" },
-        onion: { seed: "./assets/img/harvested onion.png", grown: "./assets/img/onion.png" },
-        strawberry: { seed: "./assets/img/harvested strawberry.png", grown: "./assets/img/strawberry.png" },
-        radish: { seed: "./assets/img/harvested radish.png", grown: "./assets/img/radish.png" },
-        lettuce: { seed: "./assets/img/harvested lettuce.png", grown: "./assets/img/lettuce.png" },
-        pumpkin: { seed: "./assets/img/harvested pumpkin.png", grown: "./assets/img/pumpkin.png" }
+        tomate: { seed: "./assets/img/harvested tomato.png", 
+          grown: "./assets/img/tomato.png", wet: 
+          "./assets/img/wet-tomato.png", damaged: 
+          "./assets/img/damaged-tomato.png" },
+
+        zanahoria: { seed: 
+          "./assets/img/harvested carrot.png", 
+          grown: "./assets/img/carrot.png",
+           wet: "./assets/img/wet-carrot.png", 
+           damaged: "./assets/img/damaged-carrot.png" },
+           
+        sandia: { seed: "./assets/img/harvested watermelon.png",
+           grown: "./assets/img/watermelon.png",
+            wet: "./assets/img/wet-watermelon.png", 
+            damaged: "./assets/img/damaged-watermelon.png" },
+
+        cebolla: { seed: "./assets/img/harvested onion.png", 
+          grown: "./assets/img/onion.png", 
+          wet: "./assets/img/wet-onion.png", 
+          damaged: "./assets/img/damaged-onion.png" },
+
+        fresa: { seed: "./assets/img/harvested strawberry.png", 
+          grown: "./assets/img/strawberry.png", 
+          wet: "./assets/img/wet-strawberry.png", 
+          damaged: "./assets/img/damaged-strawberry.png" },
+
+        rabano: { seed: "./assets/img/harvested radish.png", 
+          grown: "./assets/img/radish.png",
+           wet: "./assets/img/wet-radish.png",
+            damaged: "./assets/img/damaged-radish.png" },
+
+        lechuga: { seed: "./assets/img/harvested lettuce.png", 
+          grown: "./assets/img/lettuce.png", 
+          wet: "./assets/img/wet-lettuce.png", 
+          damaged: "./assets/img/damaged-lettuce.png" },
+
+        calabaza: { seed: "./assets/img/harvested pumpkin.png", 
+          grown: "./assets/img/pumpkin.png",
+           wet: "./assets/img/wet-pumpkin.png", 
+           damaged: "./assets/img/damaged-pumpkin.png" }
       },
 
       parcels: Array(32).fill().map(() => ({
@@ -24,7 +56,11 @@ export const GardenView = {
         watered: false,
         fertilized: false,
         planted: false,
-        vegetable: null
+        vegetable: null,
+
+        deathTimer: null,
+        waterTimer: null,
+        fertilizerTimer: null
       }))
     };
   },
@@ -36,56 +72,108 @@ export const GardenView = {
 
     ParcelClick(index) {
       if (!this.currentAction) return;
-
-      const parcel = this.parcels[index]; 
+      const parcel = this.parcels[index];
 
       switch (this.currentAction) {
+
+        
         case "Sembrar":
-          if (this.selectedVegetable)
-            {
+          if (this.selectedVegetable) {
             parcel.planted = true;
-             parcel.watered = false;
-             parcel.fertilized = false;
+            parcel.watered = false;
+            parcel.fertilized = false;
             parcel.vegetable = this.selectedVegetable;
             parcel.img = this.vegetableImages[parcel.vegetable].seed;
+
+            this.startDeathTimer(parcel);
             this.currentAction = null;
           }
           break;
 
+    
         case "Cosechar":
-          if (parcel.planted && parcel.watered && parcel.fertilized) {
+          if (parcel.planted) {
             parcel.planted = false;
             parcel.watered = false;
             parcel.fertilized = false;
             parcel.vegetable = null;
             parcel.img = "./assets/img/earth.png";
+            this.clearTimers(parcel);
           }
           break;
 
+      
         case "Regar":
           if (parcel.planted) {
             parcel.watered = true;
+            parcel.img = this.vegetableImages[parcel.vegetable].wet;
+
+            clearTimeout(parcel.waterTimer);
+            parcel.waterTimer = setTimeout(() => {
+              parcel.watered = false;
+              this.updateParcel(parcel);
+              this.startDeathTimer(parcel);
+            }, 8000);
+
             this.updateParcel(parcel);
           }
           break;
 
+       
         case "Abonar":
           if (parcel.planted) {
             parcel.fertilized = true;
+
+            clearTimeout(parcel.fertilizerTimer);
+            parcel.fertilizerTimer = setTimeout(() => {
+              parcel.fertilized = false;
+              this.updateParcel(parcel);
+              this.startDeathTimer(parcel);
+            }, 10000);
+
             this.updateParcel(parcel);
           }
           break;
       }
     },
 
+
+    startDeathTimer(parcel) {
+      this.clearTimers(parcel);
+
+     
+      if (parcel.watered && parcel.fertilized) return;
+
+      parcel.deathTimer = setTimeout(() => {
+        parcel.img = this.vegetableImages[parcel.vegetable].damaged;
+        parcel.planted = false;
+      }, 15000);
+    },
+
+    clearTimers(parcel) {
+      clearTimeout(parcel.deathTimer);
+      clearTimeout(parcel.waterTimer);
+      clearTimeout(parcel.fertilizerTimer);
+    },
+
     updateParcel(parcel) {
-      if (parcel.planted && parcel.watered && parcel.fertilized) {
+      if (!parcel.planted) return;
+
+     
+      if (parcel.watered && parcel.fertilized) {
         parcel.img = this.vegetableImages[parcel.vegetable].grown;
-      } else if (parcel.planted) {
-        parcel.img = this.vegetableImages[parcel.vegetable].seed;
-      } else {
-        parcel.img = "./assets/img/earth.png";
+        this.clearTimers(parcel); 
+        return;
       }
+
+     
+      if (parcel.watered) {
+        parcel.img = this.vegetableImages[parcel.vegetable].wet;
+        return;
+      }
+
+     
+      parcel.img = this.vegetableImages[parcel.vegetable].seed;
     }
   },
 
@@ -95,6 +183,7 @@ export const GardenView = {
         @go-home="$emit('goHome')"
         @go-to-shop="$emit('goToShop')"
       />
+
       <div class="background-garden">
         <div class="garden-content">
           <div class="sun-icon">
@@ -102,9 +191,11 @@ export const GardenView = {
           </div>
 
           <div class="crop-selector" v-if="currentAction == 'Sembrar'">
-            <label class ="button-font">Elegir vegetal:</label>
+            <label class="button-font">Elegir vegetal:</label>
             <select v-model="selectedVegetable">
-              <option v-for="(images, vegetable) in vegetableImages" :key="vegetable" :value="vegetable">
+              <option v-for="(images, vegetable) in vegetableImages" 
+                      :key="vegetable" 
+                      :value="vegetable">
                 {{ vegetable }}
               </option>
             </select>
@@ -132,17 +223,17 @@ export const GardenView = {
                 :key="'right-' + index" 
                 class="earth-tile"
                 @click="ParcelClick(index + 16)"
-
               >
                 <img :src="parcel.img" alt="Tierra para sembrar" />
               </div>
             </div>
           </div>
-            <div class="garden-buttons">
-             <button class="button-font button-main" @click="setAction('Regar')">Regar</button>
+
+          <div class="garden-buttons">
+            <button class="button-font button-main" @click="setAction('Regar')">Regar</button>
             <button class="button-font button-main" @click="setAction('Abonar')">Abonar</button>
-             <button class="button-font button-main" @click="setAction('Sembrar')">Sembrar</button>
-             <button class="button-font button-main" @click="setAction('Cosechar')">Cosechar</button>
+            <button class="button-font button-main" @click="setAction('Sembrar')">Sembrar</button>
+            <button class="button-font button-main" @click="setAction('Cosechar')">Cosechar</button>
           </div>
         </div>
       </div>
