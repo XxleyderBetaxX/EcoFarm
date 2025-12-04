@@ -1,16 +1,5 @@
 export const HomeView =  {
 
-    props: {
-
-    },
-
-    computed: {
-
-    },
-
-    methods: {
-
-    },
 
 
     template: /*html*/`
