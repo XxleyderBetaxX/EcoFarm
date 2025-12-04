@@ -16,9 +16,16 @@
         font-size: var(--fs-l);
     }
 
-    
-
-    
-
 }
+
+@media (max-width: 1366px) {
+    .garden-content {
+        transform: scale(0.85);
+        transform-origin: top center;
+        width: 100%; 
+    }
+}
+
+
+
 
