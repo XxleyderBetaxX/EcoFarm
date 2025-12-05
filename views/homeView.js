@@ -1,7 +1,10 @@
-export const HomeView =  {
+//homeView.js
+//componente que muestra la vista principal donde puede seleccionar desea iniciar sesión o registrarse
+
+export const HomeView = {
 
 
-
+//template para mostrar el mensaje de bienvenida y botones
     template: /*html*/`
     <div class="background-home">
     <div class="home-view">

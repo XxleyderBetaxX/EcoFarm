@@ -1,5 +1,9 @@
+//registerView.js
+//Componente que muestra la vista de registrarse
+
 export const RegisterView = {
     
+    //variables reactivas para el formulario
     data() {
         return {
             name: "",
@@ -12,14 +16,22 @@ export const RegisterView = {
 
 
     methods: {
+        //Función que se ejecuta al enviar el formulario del registro
         async register() {
             try {
+                //Se hace una petición POST al endpoint de registro del backend
                 const response = await fetch("http://127.0.0.1:8000/api/register", {
                     method: "POST",
+
+                    //Se indica que los datos que se envían es en formato JSON
                     headers: {
                         "Content-Type": "application/json",
                     },
+
+                    //Convertimos los datos del formulario en un JSON para enviarlos
                     body: JSON.stringify({
+                        
+                        //Datos ingresados
                         name: this.name,
                         email: this.email,
                         password: this.password,
@@ -29,17 +41,22 @@ export const RegisterView = {
 
                 });
 
+                //Convertir la respuesta del backend a JSON
                 const data = await response.json();
                 console.log("Respuesta del backend: ", data);
                 
+                //Si el registro fue exitoso se muestra un mensaje y redirige al login
                 if (response.ok) {
                     alert("Usuario creado con éxito");
                     this.$root.goToLoginView();
                 } else {
+
+                    //Si hubo un error se muestra el mensaje del backend
                     alert("Error " + (data.error || "Verifica los datos"));
                 }
 
             } catch (error) {
+                //Si falla la conexión del servidor
                 console.error("Error ", error);
                 alert("No se pudo conectar con el servidor")
             }
@@ -48,8 +65,8 @@ export const RegisterView = {
 
     },
 
-
-    template: /*html*/`
+//Plantilla HTML del componente
+template: /*html*/`
 <div class="background-login">
 
     <div class="login card-register">

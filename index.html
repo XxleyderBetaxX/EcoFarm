@@ -14,13 +14,15 @@
 </head>
 <body>
 
+    <!-- Contenedor principal donde Vue montará la aplicación -->
     <div id="app">
         
+        <!-- Muestra la vista que está activa según currentView -->
         <component :is="currentView"></component>
 
     </div>
 
-    
+    <!-- Carga el archivo principal de Vue que arracnta la app -->
     <script type="module" src="./components/main.js"></script>
     
 

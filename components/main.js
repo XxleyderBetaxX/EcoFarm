@@ -1,3 +1,6 @@
+//main.js
+//Archivo principal que inicializa la aplicación Vue y registra las vistas (componentes)
+
 import { HomeView } from '../views/homeView.js';
 import { LoginView } from '../views/loginView.js';
 import { GardenView } from '../views/vegetableGardenView.js';
@@ -5,24 +8,19 @@ import { RegisterView } from '../views/registerView.js';
 import { StoreView } from '../views/storeView.js';
 
 
+//crea la instancia principal de Vue
 const app = Vue.createApp({
 
     data() {
         return {
-            currentView: 'home-view'
-            
-            
-
+            //Vista actual
+            currentView: 'home-view'  
         }
         
-
     },
     
-    computed: {
-        
 
-    },
-
+    //Métodos para poder cambiar la vista
     methods: {
         goToLoginView() {
             this.currentView = 'login-view';
@@ -49,17 +47,10 @@ const app = Vue.createApp({
 
     },
     
-
-    mounted() {
-        
-    },
-
-
-
-
-
 });
 
+
+//Registra los componentes de las vistas para poder usarlos en la aplicación
 app.component('home-view', HomeView);
 app.component('login-view', LoginView);
 app.component('garden-view', GardenView);
