@@ -7,6 +7,17 @@ export const GardenView = {
 
   data() {
     return {
+      //Lista de productos para el inventario
+      products: [
+        { name: "Zanahoria", img: "./assets/img/carrot.png", price: 110, amount: 0 },
+        { name: "Lechuga", img: "./assets/img/lettuce.png", price: 120, amount: 0 },
+        { name: "Cebolla", img: "./assets/img/onion.png", price: 140, amount: 0 },
+        { name: "Calabaza", img: "./assets/img/pumpkin.png", price: 180, amount: 0 },
+        { name: "Rabano", img: "./assets/img/radish.png", price: 100, amount: 0 },
+        { name: "Fresa", img: "./assets/img/strawberry.png", price: 160, amount: 0 },
+        { name: "Tomate", img: "./assets/img/tomato.png", price: 130, amount: 0 },
+        { name: "Sandia", img: "./assets/img/watermelon.png", price: 200, amount: 0 }
+      ],
       // es la accion actual, ya sea cocechar, abonar etc
       currentAction: null,
       // este es el vegetal seleccionado para cocechar
@@ -21,13 +32,13 @@ export const GardenView = {
 
         zanahoria: { seed: "./assets/img/harvested carrot.png", 
           grown: "./assets/img/carrot.png",
-           wet: "./assets/img/wet-carrot.png", 
-           damaged: "./assets/img/damaged-carrot.png" },
+          wet: "./assets/img/wet-carrot.png", 
+          damaged: "./assets/img/damaged-carrot.png" },
 
         sandia: { seed: "./assets/img/harvested watermelon.png", 
           grown: "./assets/img/watermelon.png", 
           wet: "./assets/img/wet-watermelon.png",
-           damaged: "./assets/img/damaged-watermelon.png" },
+          damaged: "./assets/img/damaged-watermelon.png" },
 
         cebolla: { seed: "./assets/img/harvested onion.png", 
           grown: "./assets/img/onion.png", 
@@ -35,24 +46,24 @@ export const GardenView = {
           damaged: "./assets/img/damaged-onion.png" },
 
         fresa: { seed: "./assets/img/harvested strawberry.png",
-           grown: "./assets/img/strawberry.png", 
-           wet: "./assets/img/wet-strawberry.png", 
-           damaged: "./assets/img/damaged-strawberry.png" },
+          grown: "./assets/img/strawberry.png", 
+          wet: "./assets/img/wet-strawberry.png", 
+          damaged: "./assets/img/damaged-strawberry.png" },
 
         rabano: { seed: "./assets/img/harvested radish.png", 
           grown: "./assets/img/radish.png",
-           wet: "./assets/img/wet-radish.png",
-            damaged: "./assets/img/damaged-radish.png" },
+          wet: "./assets/img/wet-rabish.png",
+          damaged: "./assets/img/damaged-rabish.png" },
 
         lechuga: { seed: "./assets/img/harvested lettuce.png",
-           grown: "./assets/img/lettuce.png",
-            wet: "./assets/img/wet-lettuce.png", 
-            damaged: "./assets/img/damaged-lettuce.png" },
+          grown: "./assets/img/lettuce.png",
+          wet: "./assets/img/wet-lettuce.png", 
+          damaged: "./assets/img/damaged-lettuce.png" },
 
         calabaza: { seed: "./assets/img/harvested pumpkin.png", 
           grown: "./assets/img/pumpkin.png",
-           wet: "./assets/img/wet-pumpkin.png", 
-           damaged: "./assets/img/damaged-pumpkin.png" }
+          wet: "./assets/img/wet-pumpkin.png", 
+          damaged: "./assets/img/damaged-pumpkin.png" }
       },
 
        //Array de 32 parcelas , cada cuadrícula del terreno
@@ -98,12 +109,14 @@ export const GardenView = {
 
           // metodo para cosechar una planta lista
         case "Cosechar":
-           if (parcel.planted) {
+          if (parcel.planted) {
 
               // esto es para evitar cosechar si la planta no está lista
               if (parcel.img !== this.vegetableImages[parcel.vegetable].grown) {
                 return;
-              }
+            }
+            
+              this.addToInventory(parcel.vegetable);
 
               // Limpia la parcela
               parcel.planted = false;
@@ -196,12 +209,22 @@ export const GardenView = {
       }
 
       parcel.img = this.vegetableImages[parcel.vegetable].seed;
+    },
+    addToInventory(vegetable) {
+      const product = this.products.find(
+        (p) => p.name.toLowerCase() === vegetable
+      );
+      if (product) {
+        product.amount++;
+      }
     }
   },
+
+
 //Plantilla HTML del componente
   template: /*html*/`
     <div class="garden-view-container">
-      <HeaderNavbar 
+      <HeaderNavbar
         @go-home="$emit('goHome')"
         @go-to-shop="$emit('goToShop')"
       />
@@ -216,8 +239,8 @@ export const GardenView = {
           <div class="crop-selector" v-if="currentAction == 'Sembrar'">
             <label class="button-font">Elegir vegetal:</label>
             <select v-model="selectedVegetable">
-              <option v-for="(images, vegetable) in vegetableImages" 
-                      :key="vegetable" 
+              <option v-for="(images, vegetable) in vegetableImages"
+                      :key="vegetable"
                       :value="vegetable">
                 {{ vegetable }}
               </option>
@@ -226,9 +249,9 @@ export const GardenView = {
 
           <div class="earth-row">
             <div class="earth-grid">
-              <div 
-                v-for="(parcel, index) in parcels.slice(0,16)" 
-                :key="'left-' + index" 
+              <div
+                v-for="(parcel, index) in parcels.slice(0,16)"
+                :key="'left-' + index"
                 class="earth-tile"
                 @click="ParcelClick(index)"
               >
@@ -241,9 +264,9 @@ export const GardenView = {
             </div>
 
             <div class="earth-grid">
-              <div 
-                v-for="(parcel, index) in parcels.slice(16,32)" 
-                :key="'right-' + index" 
+              <div
+                v-for="(parcel, index) in parcels.slice(16,32)"
+                :key="'right-' + index"
                 class="earth-tile"
                 @click="ParcelClick(index + 16)"
               >
@@ -254,7 +277,7 @@ export const GardenView = {
 
           <div class="garden-buttons">
 
-           
+        
             <button class="button-font button-main" @click="setAction('Sembrar')">Sembrar</button>
             <button class="button-font button-main" @click="setAction('Regar')">Regar</button>
             <button class="button-font button-main" @click="setAction('Abonar')">Abonar</button>
@@ -263,6 +286,27 @@ export const GardenView = {
 
           </div>
 
+        </div>
+      </div>
+    </div>
+    
+    <div class="background-store">
+      <div class="square-store">
+        <img src="./assets/img/titleInventory.png" alt="EcoFarm Store" class="margin-btm-xxl" />
+
+        <div class="store-frame">
+          <img src="./assets/img/square.png" alt="Square for the store" class="store-background" />
+
+          <div class="store-overlay">
+            <ul class="no-style products-store">
+              <li v-for="product in products" :key="product.name">
+                <img :src="product.img" alt="" class="product-img" />
+                <div class="price-row">
+                  <h3 class="margin-btm-xs light text-xl">Cantidad: {{ product.amount }}</h3>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
