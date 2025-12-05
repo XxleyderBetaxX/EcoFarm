@@ -30,7 +30,7 @@ export const RegisterView = {
 
                     //Convertimos los datos del formulario en un JSON para enviarlos
                     body: JSON.stringify({
-                        
+
                         //Datos ingresados
                         name: this.name,
                         email: this.email,
@@ -79,7 +79,7 @@ template: /*html*/`
             <label class="text-lx white-color medium">Correo electrónico</label>
             <input v-model="email" type="email" placeholder="Ingresa tu correo eletrónico" class="input text-ml medium" />
 
-            <label class="text-lx white-color medium">Contraseña</label>
+            <label class="text-lx white-color medium">Contraseña <span class= "text-m">(Mínimo 8 caracteres)</span></label>
             <input v-model="password" type="password" placeholder="Ingresa tu contraseña" class="input text-ml medium" />
 
             <label class="text-lx white-color medium">Confirmar contraseña</label>
